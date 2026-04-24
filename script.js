@@ -71,7 +71,7 @@ window.location.href = "details.html";
 function loadServices() {
 let list = document.getElementById("servicesList");
 let title = document.getElementById("title");
-if(!list || !title)return;
+
 let dir = localStorage.getItem("dirName");  
 
 if (dir && title) {  

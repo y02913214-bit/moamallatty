@@ -1,18 +1,11 @@
 /* ===== Splash ===== */
 if (window.location.pathname.includes("index.html") || window.location.pathname.endsWith("/")) {
-setTimeout(() => {
-window.location.href = "login.html";
-}, 3000);
+  setTimeout(() => {
+    window.location.href = "home.html";
+  }, 3000);
 }
 
 /* ===== تنقل ===== */
-function goRegister() {
-window.location.href = "register.html";
-}
-
-function goLogin() {
-window.location.href = "login.html";
-}
 
 function goBack() {
 window.location.href = "home.html";
@@ -20,76 +13,6 @@ window.location.href = "home.html";
 
 function goBackServices() {
 window.location.href = "services.html";
-}
-
-/* ===== اظهار كلمة المرور ===== */
-function togglePassword(id) {
-let input = document.getElementById(id);
-input.type = (input.type === "password") ? "text" : "password";
-}
-
-/* ===== تسجيل ===== */
-function register() {
-let email = document.getElementById("email").value.trim();
-let password = document.getElementById("password").value;
-let confirm = document.getElementById("confirm").value;
-let error = document.getElementById("error");
-
-error.innerText = "";
-
-if (!email || !password || !confirm) {
-error.innerText = "املأ كل الحقول";
-return;
-}
-
-if (!email.includes("@") || !email.includes(".com")) {
-error.innerText = "الإيميل غير صحيح";
-return;
-}
-
-let strongPassword = /^(?=.[A-Za-z])(?=.[\W_]).{5,}$/;
-
-if (!strongPassword.test(password)) {
-error.innerText = "كلمة المرور ضعيفة";
-return;
-}
-
-if (password !== confirm) {
-error.innerText = "كلمة المرور غير متطابقة";
-return;
-}
-
-localStorage.setItem("userEmail", email);
-localStorage.setItem("userPassword", password);
-
-window.location.href = "login.html";
-}
-
-/* ===== تسجيل دخول ===== */
-
-function login() {
-let email = document.getElementById("loginEmail").value.trim();
-let password = document.getElementById("loginPassword").value;
-let error = document.getElementById("loginError");
-
-error.innerText = "";
-
-let savedEmail = localStorage.getItem("userEmail");
-let savedPassword = localStorage.getItem("userPassword");
-
-if (!savedEmail || !savedPassword) {
-error.innerText = "لا يوجد حساب، قم بإنشاء حساب أولاً";
-return;
-}
-
-if (email !== savedEmail || password !== savedPassword) {
-error.innerText = "بيانات غير صحيحة";
-return;
-}
-
-localStorage.setItem("isLoggedIn", "true");
-
-window.location.href = "home.html";
 }
 
 /* ===== فتح الخدمات ===== */
@@ -111,18 +34,12 @@ window.location.href = "details.html";
 /* ===== Splash ===== */
 if (window.location.pathname.includes("index.html") || window.location.pathname.endsWith("/")) {
 setTimeout(() => {
-window.location.href = "login.html";
+window.location.href = "home.html";
 }, 3000);
 }
 
 /* ===== تنقل ===== */
-function goRegister() {
-window.location.href = "register.html";
-}
 
-function goLogin() {
-window.location.href = "login.html";
-}
 
 function goBack() {
 window.location.href = "home.html";
@@ -132,75 +49,7 @@ function goBackServices() {
 window.location.href = "services.html";
 }
 
-/* ===== اظهار كلمة المرور ===== */
-function togglePassword(id) {
-let input = document.getElementById(id);
-input.type = (input.type === "password") ? "text" : "password";
-}
 
-/* ===== تسجيل ===== */
-function register() {
-let email = document.getElementById("email").value.trim();
-let password = document.getElementById("password").value;
-let confirm = document.getElementById("confirm").value;
-let error = document.getElementById("error");
-
-error.innerText = "";
-
-if (!email || !password || !confirm) {
-error.innerText = "املأ كل الحقول";
-return;
-}
-
-if (!email.includes("@") || !email.includes(".com")) {
-error.innerText = "الإيميل غير صحيح";
-return;
-}
-
-let strongPassword = /^(?=.[A-Za-z])(?=.[\W_]).{5,}$/;
-
-if (!strongPassword.test(password)) {
-error.innerText = "كلمة المرور ضعيفة";
-return;
-}
-
-if (password !== confirm) {
-error.innerText = "كلمة المرور غير متطابقة";
-return;
-}
-
-localStorage.setItem("userEmail", email);
-localStorage.setItem("userPassword", password);
-
-window.location.href = "login.html";
-}
-
-/* ===== تسجيل دخول ===== */
-
-function login() {
-let email = document.getElementById("loginEmail").value.trim();
-let password = document.getElementById("loginPassword").value;
-let error = document.getElementById("loginError");
-
-error.innerText = "";
-
-let savedEmail = localStorage.getItem("userEmail");
-let savedPassword = localStorage.getItem("userPassword");
-
-if (!savedEmail || !savedPassword) {
-error.innerText = "لا يوجد حساب، قم بإنشاء حساب أولاً";
-return;
-}
-
-if (email !== savedEmail || password !== savedPassword) {
-error.innerText = "بيانات غير صحيحة";
-return;
-}
-
-localStorage.setItem("isLoggedIn", "true");
-
-window.location.href = "home.html";
-}
 
 /* ===== فتح الخدمات ===== */
 function openServices(type, name) {
@@ -3246,11 +3095,7 @@ cards[i].style.display = text.includes(input) ? "block" : "none";
 /* ===== تشغيل ===== */
 window.onload = function () {
 
-// إذا مسجل سابقاً لا يطلب تسجيل دخول  
-if (localStorage.getItem("isLoggedIn") === "true" &&  
-    window.location.pathname.includes("login.html")) {  
-    window.location.href = "home.html";  
-}  
+
 
 // 🔥 هذا اللي أضفناه  
  let dir = localStorage.getItem("dirName"); 
